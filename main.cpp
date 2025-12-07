@@ -117,7 +117,9 @@ void printPath(pair<int,int> exitcell,
 // STUDENTS IMPLEMENT DFS HERE
 // Add arguments, return type, and logic
 // ----------------------------------------------------------
-bool dfs(int r, int c, const vector<vector<int>>& maze, vector<vector<bool>>& visited, vector<vector<int>>& parent_r, vector<vector<int>>& parent_c, int exit_r, int exit_c) {
+bool dfs(int r, int c, const vector<vector<int>>& maze,
+    vector<vector<bool>>& visited, vector<vector<int>>& parent_r,
+    vector<vector<int>>& parent_c, int exit_r, int exit_c) {
     // Your code here
 
     //check out of bounds
@@ -127,22 +129,37 @@ bool dfs(int r, int c, const vector<vector<int>>& maze, vector<vector<bool>>& vi
 
     //check for wall
     if (maze[r][c] == 1) {
-        return true;
-    }
-
-    //check visited
-    if (visited[r][c] == 0) {
         return false;
     }
 
+    //check visited
+    if (visited[r][c]) {
+        return true;
+    }
+
     //visited
-    visited[r][c] = 1;
+    visited[r][c] = true;
 
     //check exit
     if (r == exit_r && c == exit_c) {
         return true;
     }
 
+    //check for directions(up,right,down,left)
+    for (int i = 0; i < 4; i++) {
+
+        int nr = r + dr[i];
+        int nc = c + dc[i];
+
+        if (dfs(nr, nc, maze, visited, parent_r, parent_c, exit_r, exit_c)) {
+            parent_r[nr][nc] = r;
+            parent_c[nr][nc] = c;
+            return true;
+        }
+    }
+
+    //no directions possible
+    return false;
  }
 
 
