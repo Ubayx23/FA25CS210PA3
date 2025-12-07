@@ -3,8 +3,7 @@
 # Output Guide for PA3: Maze Escape Using DFS
 
 This guide explains what the program will generate, how you should interact with it, and how to understand the maze grid that appears on your screen. You should read this before running and testing your DFS implementation.
-(test)
----
+
 
 ## 1. What the Program Will Generate
 
