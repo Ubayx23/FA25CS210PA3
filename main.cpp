@@ -119,9 +119,15 @@ void printPath(pair<int,int> exitcell,
 // ----------------------------------------------------------
 bool dfs(int r, int c, const vector<vector<int>>& maze, vector<vector<bool>>& visited, vector<vector<int>>& parent_r, vector<vector<int>>& parent_c, int exit_r, int exit_c) {
     // Your code here
+    //check out of bounds
     if (r < 0 || r>= maze.size() || c < 0 || c>= maze[0].size()) {
         return false;
     }
+    //check for wall
+    if (maze[r][c] == 1) {
+        return true;
+    }
+
 
  }
 
