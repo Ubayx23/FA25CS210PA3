@@ -134,7 +134,7 @@ bool dfs(int r, int c, const vector<vector<int>>& maze,
 
     //check visited
     if (visited[r][c]) {
-        return true;
+        return false;
     }
 
     //visited
