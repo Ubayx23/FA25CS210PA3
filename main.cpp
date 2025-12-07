@@ -135,6 +135,13 @@ bool dfs(int r, int c, const vector<vector<int>>& maze, vector<vector<bool>>& vi
         return false;
     }
 
+    //visited
+    visited[r][c] = 1;
+
+    //check exit
+    if (r == exit_r && c == exit_c) {
+        return true;
+    }
 
  }
 
